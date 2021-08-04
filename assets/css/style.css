@@ -218,3 +218,23 @@ input[type=checkbox] {
 .error {
     color: #D33F49;
 }
+@media only screen and (max-width: 960px) {
+    h1{
+        font-size: 1.6em;
+        margin-bottom: 0;
+    }
+    .parent-box{
+        flex-direction: column-reverse;
+        width: 90%;
+    }
+    .left-child-box {
+        border-radius: 0 0 20px 20px;
+    }
+    .right-child-box{
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+    }
+    .right-child-box h1{
+        margin-bottom: 20px;
+    }
+}
