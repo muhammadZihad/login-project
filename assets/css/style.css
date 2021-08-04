@@ -58,7 +58,9 @@ input, input:active, input:focus {
     text-align: center;
 }
 
-.left-child-box button {
+.left-child-box a {
+    text-decoration: none;
+    text-align: center;
     padding: 10px 20px;
     background: #dce2ea;
     color: #18266a;
@@ -72,7 +74,7 @@ input, input:active, input:focus {
     max-width: 250px;
 }
 
-.left-child-box button:hover {
+.left-child-box a:hover {
     background: #18266a;
     color: #dce2ea;
     border: 2px solid #dce2ea;
@@ -207,4 +209,12 @@ input[type=checkbox] {
 .form-submit a {
     color: #4783bc;
     text-decoration: none;
+}
+
+.success {
+    color: #77BA99;
+}
+
+.error {
+    color: #D33F49;
 }

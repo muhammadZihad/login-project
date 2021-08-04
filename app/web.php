@@ -1,20 +1,48 @@
 <?php
-	require './bootstrap.php';
+	session_start();
+	require "./bootstrap.php";
+	require "./inc/helper.php";
 
 	use App\Controller\UserController;
 
 	$user = new UserController;
-//	$user->register("Hello","efg@mail.com", "password");
-//	$user->login("efg@mail.com", "password");
 
+//	Login
 	if (isset($_POST["login"])) {
-		if (!isset($_POST["email"])) {
-			echo "error";
+		if (!isset($_POST["email"]) || !isset($_POST["password"])) {
+			messageRedirect("error", "Empty form value", "login.php");
 		}
 
-		if (!isset($_POST["password"])) {
-			echo "error2";
-		}
+		$data = $user->login($_POST["email"], $_POST["password"]);
 
-		$user->login($_POST["email"], $_POST["password"]);
+		if (!$data) {
+			messageRedirect("error", "Failed to login", "register.php");
+		}
+		if (isset($_POST["remember"])) {
+			setcookie("user", $data->id, 86400 * 30, "/");
+		}
+		header("Location: http://localhost/rrad/");
 	}
+
+//	Register
+	if (isset($_POST["register"])) {
+		if (!isset($_POST["name"]) || !isset($_POST["password"]) || !isset($_POST["email"])) {
+			messageRedirect("error", "Empty form value", "register.php");
+		}
+
+		$data = $user->register($_POST["name"], $_POST["email"], $_POST["password"]);
+
+		if ($data) {
+			messageRedirect("success", "Registration Successful. Please Login", "login.php");
+		} else {
+			messageRedirect("error", "Failed to register", "register.php");
+		}
+	}
+//	Logout
+	if (isset($_POST["logout"])) {
+		unset($_COOKIE['user']);
+		session_destroy();
+		header("Location: http://localhost/rrad/login.php");
+	}
+
+
