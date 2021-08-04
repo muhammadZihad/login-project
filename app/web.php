@@ -9,7 +9,7 @@
 
 //	Login
 	if (isset($_POST["login"])) {
-		if (!isset($_POST["email"]) || $_POST["email"] != "" || !isset($_POST["password"]) || $_POST["password"]) {
+		if (!isset($_POST["email"]) || $_POST["email"] != "" || !isset($_POST["password"]) || $_POST["password"] != "") {
 			messageRedirect("error", "Empty form value", "login.php");
 		} else {
 			$data = $user->login($_POST["email"], $_POST["password"]);
@@ -26,7 +26,7 @@
 
 //	Register
 	if (isset($_POST["register"])) {
-		if (!isset($_POST["name"]) || $_POST["name"] != "" || !isset($_POST["email"]) || $_POST["email"] != "" || !isset($_POST["password"]) || $_POST["password"]) {
+		if (!isset($_POST["name"]) || $_POST["name"] != "" || !isset($_POST["email"]) || $_POST["email"] != "" || !isset($_POST["password"]) || $_POST["password"] != "") {
 			messageRedirect("error", "Empty form value", "register.php");
 		} else {
 			$data = $user->register($_POST["name"], $_POST["email"], $_POST["password"]);
