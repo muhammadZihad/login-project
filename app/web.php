@@ -20,7 +20,7 @@
 			if (isset($_POST["remember"])) {
 				setcookie("user", $data->id, 86400 * 30, "/");
 			}
-			header("Location: http://localhost/rrad/");
+			redirect("");
 		}
 	}
 
@@ -41,7 +41,7 @@
 	if (isset($_POST["logout"])) {
 		unset($_COOKIE['user']);
 		session_destroy();
-		header("Location: http://localhost/rrad/login.php");
+		redirect("login.php");
 	}
 
 
