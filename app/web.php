@@ -9,33 +9,32 @@
 
 //	Login
 	if (isset($_POST["login"])) {
-		if (!isset($_POST["email"]) || !isset($_POST["password"])) {
+		if (!isset($_POST["email"]) || $_POST["email"] != "" || !isset($_POST["password"]) || $_POST["password"]) {
 			messageRedirect("error", "Empty form value", "login.php");
-		}
+		} else {
+			$data = $user->login($_POST["email"], $_POST["password"]);
 
-		$data = $user->login($_POST["email"], $_POST["password"]);
-
-		if (!$data) {
-			messageRedirect("error", "Failed to login", "register.php");
+			if (!$data) {
+				messageRedirect("error", "Failed to login", "register.php");
+			}
+			if (isset($_POST["remember"])) {
+				setcookie("user", $data->id, 86400 * 30, "/");
+			}
+			header("Location: http://localhost/rrad/");
 		}
-		if (isset($_POST["remember"])) {
-			setcookie("user", $data->id, 86400 * 30, "/");
-		}
-		header("Location: http://localhost/rrad/");
 	}
 
 //	Register
 	if (isset($_POST["register"])) {
-		if (!isset($_POST["name"]) || !isset($_POST["password"]) || !isset($_POST["email"])) {
+		if (!isset($_POST["name"]) || $_POST["name"] != "" || !isset($_POST["email"]) || $_POST["email"] != "" || !isset($_POST["password"]) || $_POST["password"]) {
 			messageRedirect("error", "Empty form value", "register.php");
-		}
-
-		$data = $user->register($_POST["name"], $_POST["email"], $_POST["password"]);
-
-		if ($data) {
-			messageRedirect("success", "Registration Successful. Please Login", "login.php");
 		} else {
-			messageRedirect("error", "Failed to register", "register.php");
+			$data = $user->register($_POST["name"], $_POST["email"], $_POST["password"]);
+			if ($data) {
+				messageRedirect("success", "Registration Successful. Please Login", "login.php");
+			} else {
+				messageRedirect("error", "Failed to register", "register.php");
+			}
 		}
 	}
 //	Logout

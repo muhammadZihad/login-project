@@ -23,6 +23,17 @@
 				<a href="http://localhost/rrad/login.php">Login</a>
 			</div>
 			<div class="child-box right-child-box">
+				<?php
+					if(isset($_SESSION["error"]))   {
+						echo "<h3 class='error'>{$_SESSION["error"]}</h3>";
+						unset($_SESSION["error"]);
+					}
+
+					if(isset($_SESSION["success"]))   {
+						echo "<h3 class='success'>{$_SESSION["success"]}</h3>";
+						unset($_SESSION["success"]);
+					}
+				?>
 				<div class="form-container">
 					<h1>New Registration</h1>
 					<form id="form" action="/rrad/app/web.php" method="post">
