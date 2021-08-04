@@ -28,15 +28,15 @@
 					<form action="/rrad/app/web.php" method="post">
 						<div class="form-element">
 							<span>Name</span>
-							<input type="text" id="name" name="name" placeholder="Your Name">
+							<input type="text" id="name" name="name" required placeholder="Your Name">
 						</div>
 						<div class="form-element">
 							<span>Email</span>
-							<input type="text" id="email" name="email" placeholder="email@mail.com">
+							<input type="text" id="email" name="email" required placeholder="email@mail.com">
 						</div>
 						<div class="form-element">
 							<span>Password</span>
-							<input type="password" id="password" name="password" placeholder="**********">
+							<input type="password" id="password" name="password" required placeholder="**********">
 						</div>
 						<div class="form-submit">
 							<input type="submit" name="register" value="Register">

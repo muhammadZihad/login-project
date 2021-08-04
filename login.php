@@ -39,11 +39,11 @@
                     <form action="/rrad/app/web.php" method="post">
                         <div class="form-element">
                             <span>Email</span>
-                            <input type="text" id="email" name="email" placeholder="email@mail.com">
+                            <input type="text" id="email" name="email" required placeholder="email@mail.com">
                         </div>
                         <div class="form-element">
                             <span>Password</span>
-                            <input type="password" id="password" name="password" placeholder="**********">
+                            <input type="password" id="password" name="password" required placeholder="**********">
                         </div>
                         <div class="checkbox">
                             <label class="checkbox-default"><input type="checkbox" name="remember"> <span
