@@ -36,10 +36,10 @@
 				?>
                 <div class="form-container">
                     <h1>Login to Dashboard</h1>
-                    <form action="/rrad/app/web.php" method="post">
+                    <form id="form" action="/rrad/app/web.php" method="post">
                         <div class="form-element">
                             <span>Email</span>
-                            <input type="text" id="email" name="email" required placeholder="email@mail.com">
+                            <input type="email" id="email" name="email" required placeholder="email@mail.com">
                         </div>
                         <div class="form-element">
                             <span>Password</span>

@@ -25,14 +25,14 @@
 			<div class="child-box right-child-box">
 				<div class="form-container">
 					<h1>New Registration</h1>
-					<form action="/rrad/app/web.php" method="post">
+					<form id="form" action="/rrad/app/web.php" method="post">
 						<div class="form-element">
 							<span>Name</span>
 							<input type="text" id="name" name="name" required placeholder="Your Name">
 						</div>
 						<div class="form-element">
 							<span>Email</span>
-							<input type="text" id="email" name="email" required placeholder="email@mail.com">
+							<input type="email" id="email" name="email" required placeholder="email@mail.com">
 						</div>
 						<div class="form-element">
 							<span>Password</span>
