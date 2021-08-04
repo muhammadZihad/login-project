@@ -2,5 +2,11 @@
 	function messageRedirect($type, $msg, $url)
 	{
 		$_SESSION[$type] = $msg;
-		header("Location: http://localhost/rrad/" . $url);
+		redirect($url);
+	}
+
+	function redirect($url)	{
+		$base = "Location: http://" . $_SERVER['SERVER_NAME'] . "/rrad/" ;
+		// base should be 'Location: http://localhost/rrad/'
+		header($base . $url);
 	}
